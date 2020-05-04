@@ -17,19 +17,29 @@ public class Loginpage
 {
 
 	WebDriver driver;
+	
 //public Loginpage() throws IOException {
 //		super();
 //		// TODO Auto-generated constructor stub
 //	}
 
 
+@FindBy (xpath="(//*[@class=\"sign_in_wrapper\"])[2]")
+WebElement Signinbutton;
 
-//@FindBy (xpath="//*[@id=\\\"get_sign_in\\\"]")
-@FindBy (xpath="//*[@id='get_sign_in']")
-WebElement Loginbutton;
+@FindBy(xpath="//*[@id=\"username\"]")
+WebElement emailid;
 
-@FindBy (xpath="//*[@id='roundTrip']")
-WebElement roundtripbutton;
+@FindBy(xpath="//*[@class=\"bui-button__text\"]")
+WebElement Nextbutton;
+
+@FindBy(xpath="//*[@id=\"password\"]")
+WebElement Passwordfield;
+
+
+@FindBy(xpath="//*[@type=\"submit\"]")
+WebElement Submit;
+
 
 
 public Loginpage(WebDriver driver)
@@ -39,34 +49,24 @@ public Loginpage(WebDriver driver)
 //	PageFactory.initElements(driver, Loginpage.class);
 }
 
-//"//*[@label=\"login-button\"]")
 
-public void loginbuttonclick() throws InterruptedException
+public void Signinbuttonclick() throws InterruptedException
 {
 	Thread.sleep(2000);
-	System.out.println("In POM");
-	Loginbutton.click();
-	//driver.findElement(By.xpath("//*[@label=\"login-button\"]")).click();
-	//*[@id="login-button-nav-item"]/button
-	//*[@id="get_sign_in"]
-	//*[@id="login-button-nav-item"]/button
-	//driver.findElement(By.xpath("//*[@id=\"get_sign_in\"]")).click();  //goibibo
 	
+	Signinbutton.click();
+		
 }
 
 
-public void roundtripbuttonclick() throws InterruptedException
+public void signinemail(CharSequence email, CharSequence Password)
 {
-	Thread.sleep(2000);
-	System.out.println("heIn POM");
-	//Loginbroundtripbuttonutton.click();
-	//driver.findElement(By.xpath("//*[@label=\"login-button\"]")).click();
-	//*[@id="login-button-nav-item"]/button
-	//*[@id="get_sign_in"]
-	//*[@id="login-button-nav-item"]/button
-	//driver.findElement(By.xpath("//*[@id=\"get_sign_in\"]")).click();  //goibibo
-	
+   emailid.sendKeys(email);
+   Nextbutton.click();
+   Passwordfield.sendKeys(Password);
+   Submit.click();
 }
+
 
 
 

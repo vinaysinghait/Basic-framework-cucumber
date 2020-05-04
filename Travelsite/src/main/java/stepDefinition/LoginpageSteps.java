@@ -30,8 +30,8 @@ public class LoginpageSteps extends BaseClass
 		BaseClass.initialization();
 	}
 
-	@Then("^enter Skyscanner URl$")
-	public void enter_Skyscanner_URl() throws Throwable 
+	@Then("^enter bookingsite URl$")
+	public void enter_bookingsite_URl() throws Throwable 
 	{
 	    
 	}
@@ -40,10 +40,8 @@ public class LoginpageSteps extends BaseClass
 	public void user_logsin_using_Email_and_Password(String arg1, String arg2) throws Throwable 
 	{
 		
-		//driver.findElement(By.xpath("//*[@id=\"get_sign_in\"]")).click();
-		//obj=new Loginpage(getDriver());
-		obj=new Loginpage(getDriver());
-		obj.loginbuttonclick();
+		obj.signinemail(prop.getProperty("email"), prop.getProperty("Password"));
+		
 	}	
 
 	@Then("^Login must be successfull$")
@@ -54,10 +52,11 @@ public class LoginpageSteps extends BaseClass
 	
 
 @Then("^I click Sign in$")
-public void i_click_Sign_in() throws Throwable {
-    // Write code here that turns the phrase above into concrete actions
-	obj=new Loginpage(getDriver());
-	obj.loginbuttonclick();
+public void i_click_Sign_in() throws Throwable
+{
+    
+	obj=new Loginpage(driver);
+	obj.Signinbuttonclick();
 }
 
 
